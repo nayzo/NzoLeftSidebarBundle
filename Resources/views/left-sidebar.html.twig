@@ -1,0 +1,75 @@
+<div class="page-sidebar">
+    <div class="main-header-left d-none d-lg-block">
+        <div class="logo-wrapper">
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('images/logo.svg') }}" alt=""></a>
+        </div>
+    </div>
+    <div class="sidebar custom-scrollbar">
+        <ul class="sidebar-menu">
+            {# {% block navHeader %}{% include "user:nav-header.html.twig" %}{% endblock %} #}
+            {% for item in items %}
+                {% if item.role is not defined or is_granted(item.role) %}
+                    <li class="{% if item.active is defined %}active{% endif %} {% if item.class is defined %}{{ item.class }}{% endif %}">
+                        <a class="sidebar-header" href="{{ item.href }}">
+                            {% if item.icon is defined %}
+                                <i data-feather="{{ item.icon }}"></i>
+                            {% endif %}
+                            <span>{{ item.label }}</span>
+                            {% if item.children is defined %}
+                                {% set displayArrow = false %}
+                                {% for child in item.children %}
+                                    {% if child.role is not defined or is_granted(child.role) %}
+                                        {% set displayArrow = true %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if displayArrow %}
+                                    <span class="fa arrow"></span>
+                                {% endif %}
+                            {% endif %}
+                        </a>
+
+                        {% if item.children is defined and displayArrow %}
+                            <ul class="nav nav-second-level collapse">
+                                {% for child in item.children %}
+                                    {% if child.role is not defined or is_granted(child.role) %}
+                                        <li {% if child.active is defined %}class="active"{% endif %}>
+                                            <a href="{{ child.href }}">
+                                                {% if child.icon is defined %}
+                                                    <i class="{{ child.icon }}"></i>
+                                                {% endif %}
+                                                <span class="nav-label">{{ child.label }}</span>
+                                                {% if child.children is defined %}
+                                                    <span class="fa arrow"></span>
+                                                {% endif %}
+                                            </a>
+
+                                            {% if child.children is defined %}
+                                                {% set children = child.children %}
+                                                <ul class="nav nav-third-level collapse">
+                                                    {% for child in children %}
+                                                        {% if child.role is not defined or is_granted(child.role) %}
+                                                            <li {% if child.active is defined %}class="active"{% endif %}>
+                                                                <a href="{{ child.href }}">
+                                                                    {% if child.icon is defined %}
+                                                                        <i class="{{ child.icon }}"></i>
+                                                                    {% endif %}
+                                                                    <span class="nav-label">{{ child.label }}</span>
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

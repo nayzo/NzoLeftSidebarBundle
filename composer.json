@@ -1,0 +1,33 @@
+{
+    "name": "nzo/left-sidebar-bundle",
+    "type": "symfony-bundle",
+    "description": "The NzoLeftSidebarBundle is a Symfony Bundle used to handle Left SideBare Menu",
+    "keywords": ["Menu", "left-sidebar", "template"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ala Eddine Khefifi",
+            "email": "alakhefifi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Nzo\\LeftSidebarBundle\\": "" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nzo\\LeftSidebarBundle\\Tests\\": "/tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1.3",
+        "symfony/framework-bundle": "^4.4|^5.0",
+        "symfony/yaml": "^4.4|^5.0",
+        "twig/twig": "^2.10|^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8 || ^5.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
