@@ -5,4 +5,5 @@ services:
 
     Nzo\LeftSidebarBundle\Menu\MenuLeftSidebar:
         arguments:
-            - "%nzo_left_sidebar.menu%"
+            $leftSidebarData: '%nzo_left_sidebar.menu%'
+            $appEnvironment: '%env(APP_ENV)%'

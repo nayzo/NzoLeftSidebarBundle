@@ -10,7 +10,7 @@
             {# {% block navHeader %}{% include "user:nav-header.html.twig" %}{% endblock %} #}
             {% for item in items %}
                 {% if item.role is not defined or is_granted(item.role) %}
-                    <li class="{% if item.active is defined %}active{% endif %} {% if item.class is defined %}{{ item.class }}{% endif %}">
+                    <li class="{% if item.active is defined %}active{% endif %} {% if item.cssClass is defined %}{{ item.cssClass }}{% endif %}">
                         <a class="sidebar-header" href="{{ item.href }}">
                             {% if item.icon is defined %}
                                 <i data-feather="{{ item.icon }}"></i>

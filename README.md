@@ -32,13 +32,12 @@ return [
 # config/packages/nzo_left_sidebar.yaml
 
 nzo_left_sidebar:
-    app_environment_name: '%env(APP_ENV)%'  # optional, it used when "accepted_environment_names" parameter is set.
     menu:
         user:
             label: Admin Users
             href: /user                               # href
             icon: users
-            class: bn-danger                          # CSS class
+            cssClass: bn-danger
             role: ROLE_ADMIN
             accepted_environment_names: [prod, dev]   # optional
         article:
@@ -46,18 +45,18 @@ nzo_left_sidebar:
             href: article_index                       # route name
             icon: feather
             role: ROLE_USER
-        children:
-            article_foo:
-                label:Foo
-                href: /foo
-                icon: fa fa-play-circle
-                role: ROLE_USER
-                children:
-                    article_foo_bar:
-                        label: bar
-                        href: foo/bar
-                        icon: fa fa-video-camera
-                        role: ROLE_USER
+            children:
+                article_foo:
+                    label: Foo
+                    href: /foo
+                    icon: fa fa-play-circle
+                    role: ROLE_USER
+                    children:
+                        article_foo_bar:
+                            label: bar
+                            href: foo/bar
+                            icon: fa fa-video-camera
+                            role: ROLE_USER
 ```
 
 ##### Override the default template:

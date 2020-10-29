@@ -11,18 +11,18 @@ class MenuLeftSidebar
     private $request;
     private $router;
     private $leftSidebarData;
-    private $appEnvironmentName;
+    private $appEnvironment;
 
     public function __construct(
         RequestStack $requestStack,
         RouterInterface $router,
         array $leftSidebarData,
-        string $appEnvironmentName = null
+        string $appEnvironment = null
     ) {
         $this->request = $requestStack->getMasterRequest();
         $this->router = $router;
         $this->leftSidebarData = $leftSidebarData;
-        $this->appEnvironmentName = $appEnvironmentName;
+        $this->appEnvironment = $appEnvironment;
     }
 
     public function displayLeftSidebar(Environment $twig, string $leftSidebarActiveRouteName = null)
@@ -94,10 +94,10 @@ class MenuLeftSidebar
 
     private function isAppEnvironmentNameExcluded(array $item): bool
     {
-        if (!empty($item['accepted_environment_names']) && null !== $this->appEnvironmentName) {
+        if (!empty($item['accepted_environment_names']) && null !== $this->appEnvironment) {
             $names = array_map('mb_strtolower', $item['accepted_environment_names']);
 
-            return !in_array(mb_strtolower($this->appEnvironmentName), $names);
+            return !in_array(mb_strtolower($this->appEnvironment), $names);
         }
 
         return false;
