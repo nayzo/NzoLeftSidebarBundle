@@ -5,7 +5,10 @@ The **NzoLeftSidebarBundle** is a Symfony Bundle used to handle Left SideBare Me
 
 ###### This Bundle is compatible with **Symfony >= 4.4**
 
-#### Installation
+Installation
+------------
+
+### Through Composer:
 
 ```
 $ composer require nzo/left-sidebar-bundle
@@ -65,7 +68,8 @@ templates/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ NzoLeftSidebarBundle/  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ left-sidebar.html.twig  
 
-#### License
+License
+-------
 
 This bundle is under the MIT license. See the complete license in the bundle:
 
