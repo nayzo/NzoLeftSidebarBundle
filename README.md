@@ -1,6 +1,10 @@
 NzoLeftSidebarBundle
 ====================
 
+[![Build Status](https://travis-ci.org/nayzo/NzoLeftSidebarBundle.svg?branch=master)](https://travis-ci.org/nayzo/NzoLeftSidebarBundle)
+[![Latest Stable Version](https://poser.pugx.org/nzo/left-sidebar-bundle/v/stable)](https://packagist.org/packages/nzo/left-sidebar-bundle)
+
+
 The **NzoLeftSidebarBundle** is a Symfony Bundle used to handle Left SideBare Menu.
 
 ###### This Bundle is compatible with **Symfony >= 4.4**
