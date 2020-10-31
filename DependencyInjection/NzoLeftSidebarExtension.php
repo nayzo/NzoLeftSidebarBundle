@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the NzoLeftSidebarBundle package.
  *
  * (c) Ala Eddine Khefifi <alakhefifi@gmail.com>
