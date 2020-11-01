@@ -7,3 +7,7 @@ services:
         arguments:
             $leftSidebarData: '%nzo_left_sidebar.menu%'
             $appEnvironment: '%env(APP_ENV)%'
+
+    Nzo\LeftSidebarBundle\Twig\LeftSidebarExtension:
+        tags:
+            - { name: twig.extension }

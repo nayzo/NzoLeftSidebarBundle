@@ -2,7 +2,7 @@
 
 namespace Nzo\LeftSidebarBundle\Twig;
 
-use Nzo\LeftSidebarBundle\Menu;
+use Nzo\LeftSidebarBundle\Menu\MenuLeftSidebar;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
