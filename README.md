@@ -63,7 +63,7 @@ nzo_left_sidebar:
 ```
 
 ##### Override the default template:
-I's possible de override the default template:
+It is possible de override the default template:
 
 templates/  
 &nbsp;&nbsp;&nbsp;└─ bundles/  
