@@ -20,7 +20,6 @@ $ composer require nzo/left-sidebar-bundle
 
 #### Register the bundle in config/bundles.php (without Flex)
 
-
 ``` php
 // config/bundles.php
 
