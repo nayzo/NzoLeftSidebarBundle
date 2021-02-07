@@ -38,26 +38,26 @@ nzo_left_sidebar:
     menu:
         user:
             label: Admin Users
-            href: /user                               # href
+            route_or_uri: /user                               # uri href
             icon: users
             cssClass: bn-danger
             role: ROLE_ADMIN
             accepted_environment_names: [prod, dev]   # optional
         article:
             label: Articles
-            href: article_index                       # route name
+            route_or_uri: article_index                       # route name
             icon: feather
             role: ROLE_USER
             children:
                 article_foo:
                     label: Foo
-                    href: /foo
+                    route_or_uri: /foo
                     icon: fa fa-play-circle
                     role: ROLE_USER
                     children:
                         article_foo_bar:
                             label: bar
-                            href: foo/bar
+                            route_or_uri: foo/bar
                             icon: fa fa-video-camera
                             role: ROLE_USER
 ```

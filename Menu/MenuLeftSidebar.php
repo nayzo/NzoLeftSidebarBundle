@@ -12,6 +12,7 @@
 namespace Nzo\LeftSidebarBundle\Menu;
 
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -114,24 +115,18 @@ class MenuLeftSidebar
 
     private function handleRouting(&$item)
     {
-        if (isset($item['href'], $item['route'])) {
-            throw new \InvalidArgumentException("One parameter of the 'href' or 'route' must be set but not both");
-        }
-
-        if (isset($item['href'])) {
+        try {
+            $item['href'] = $this->router->generate($item['route_or_uri']);
+        } catch (RouteNotFoundException $e) {
             $item['href'] = $this->generateRoute($item);
-        }
-
-        if (isset($item['route'])) {
-            $item['href'] = $this->router->generate($item['route']);
         }
     }
 
     private function generateRoute(array $item): string
     {
         $uri = '#';
-        if (!empty($item['href'])) {
-            $uri = $item['href'];
+        if (!empty($item['route_or_uri'])) {
+            $uri = $item['route_or_uri'];
             $uri = ('/' !== $uri[0]) ? '/'.$uri : $uri;
         }
 
