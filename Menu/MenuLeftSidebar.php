@@ -45,7 +45,9 @@ class MenuLeftSidebar
                 continue;
             }
 
-            if (isset($item['children'])) {
+            if (empty($item['children'])) {
+                unset($item['children']);
+            } else {
                 $item = $this->buildChildren($item, $leftSidebarActiveRouteName);
             }
 
@@ -78,7 +80,9 @@ class MenuLeftSidebar
 
             $this->handleRouting($childrenItem);
 
-            if (isset($childrenItem['children'])) {
+            if (empty($childrenItem['children'])) {
+                unset($childrenItem['children']);
+            } else {
                 $childrenItem = $this->buildChildren($childrenItem, $leftSidebarActiveRouteName);
             }
         }
@@ -94,7 +98,7 @@ class MenuLeftSidebar
     {
         $children = [];
         foreach ($item['children'] as $child) {
-            if (isset($child['children'])) {
+            if (!empty($child['children'])) {
                 $children = array_merge($children, $this->getOffspringNames($child));
             }
         }
